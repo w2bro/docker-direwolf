@@ -24,15 +24,14 @@ FROM base
 COPY --from=builder /target/ /usr/local/
 COPY --from=builder /etc/udev/rules.d/99-direwolf-cmedia.rules /etc/udev/rules.d/99-direwolf-cmedia.rules
 
-ENV ADEVICE stdin null \
-    CALLSIGN N0CALL \
-    PASSCODE -1 \
-    IGSERVER noam.aprs2.net \
-    FREQUENCY 144.39M \
-    COMMENT Direwolf in Docker w2bro/direwolf \
-    SYMBOL igate
+ENV CALLSIGN "N0CALL"
+ENV PASSCODE "-1"
+ENV IGSERVER "noam.aprs2.net"
+ENV FREQUENCY "144.39M"
+ENV COMMENT "Direwolf in Docker w2bro/direwolf"
+ENV SYMBOL "igate"
 
 COPY start.sh direwolf.conf /etc/direwolf/
 WORKDIR /etc/direwolf
 
-CMD ["/bin/sh", "/etc/direwolf/start.sh"]
+CMD ["/bin/bash", "/etc/direwolf/start.sh"]

@@ -1,5 +1,5 @@
 # docker-direwolf
-A multi-platform image for running Direwolf for APRS projects
+A multi-platform image for running Direwolf for APRS projects 📡
 
 ## Environment Variables
 
@@ -37,7 +37,7 @@ spec:
     - name: CALLSIGN
       value: N0CALL-10
     - name: PASSCODE
-      value: XXXXX
+      value: "12345"
     - name: FREQUENCY
       value: 144.39M
     - name: LATITUDE
