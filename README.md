@@ -18,39 +18,49 @@ A multi-platform image for running Direwolf for APRS projects 📡
 ## Example Usage
 
 ### Kubernetes
-Example pod definition to run on a [k3s] node with a RTL-SDR Blog v3 dongle plugged into one of the USB ports on a Raspberry Pi 4
+Example deployment to run on a [k3s] Raspberry Pi node with a RTL-SDR Blog v3 dongle plugged into one of the USB ports
 
 ```yaml
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: aprs-igate
   namespace: ham-radio
 spec:
-  nodeName: homelab-pi4b-node-attic-2
-  containers:
-  - name: direwolf
-    image: w2bro/direwolf
-    securityContext:
-      privileged: true
-    env:
-    - name: CALLSIGN
-      value: N0CALL-10
-    - name: PASSCODE
-      value: "12345"
-    - name: FREQUENCY
-      value: 144.39M
-    - name: LATITUDE
-      value: 42^37.14N
-    - name: LONGITUDE
-      value: 071^20.83W
-    volumeMounts:
-    - mountPath: /dev/bus/usb/001/004
-      name: rtl
-  volumes:
-  - name: rtl
-    hostPath:
-      path: /dev/bus/usb/001/004
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aprs-igate
+  template:
+    metadata:
+      labels:
+        app: aprs-igate
+    spec:
+      nodeName: homelab-pi4b-node-attic-2
+      containers:
+      - name: direwolf
+        image: w2bro/direwolf:edge
+        imagePullPolicy: Always
+        securityContext:
+          privileged: true
+        env:
+        - name: CALLSIGN
+          value: N0CALL-10
+        - name: PASSCODE
+          value: "12345"
+        - name: FREQUENCY
+          value: 144.39M
+        - name: LATITUDE
+          value: 42^37.14N
+        - name: LONGITUDE
+          value: 071^20.83W
+        volumeMounts:
+        - mountPath: /dev/bus/usb/001/004
+          name: rtl
+      volumes:
+      - name: rtl
+        hostPath:
+          path: /dev/bus/usb/001/004
 ```
 
 [find passcode here]: http://apps.magicbug.co.uk/passcode/
