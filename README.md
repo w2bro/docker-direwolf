@@ -1,9 +1,11 @@
 # docker-direwolf
-A multi-platform image for running Direwolf for APRS projects 📡
+A multi-platform image for running [Direwolf] for APRS projects 📡
+
+`docker pull w2bro/direwolf`
 
 ## Environment Variables
 
-| Variable    | Required? | Description |
+| Variable    | Required | Description |
 |-------------|-----------|-------------|
 | `CALLSIGN`  | Yes | Your callsign & SSID, example `N0CALL-10` |
 | `PASSCODE`  | Yes | Passcode for igate login, [find passcode here] |
@@ -39,7 +41,7 @@ spec:
       nodeName: homelab-pi4b-node-attic-2
       containers:
       - name: direwolf
-        image: w2bro/direwolf:edge
+        image: w2bro/direwolf
         imagePullPolicy: Always
         securityContext:
           privileged: true
@@ -62,6 +64,6 @@ spec:
         hostPath:
           path: /dev/bus/usb/001/004
 ```
-
+[Direwolf]: https://github.com/wb2osz/direwolf
 [find passcode here]: http://apps.magicbug.co.uk/passcode/
 [k3s]: https://k3s.io
