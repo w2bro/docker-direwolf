@@ -9,7 +9,7 @@ A multi-platform image for running Direwolf for APRS projects 📡
 | `PASSCODE`  | Yes | Passcode for igate login, [find passcode here] |
 | `LATITUDE`  | Yes | Latitude for PBEACON, example `42^37.14N` |
 | `LONGITUDE` | Yes | Longitude for PBEACON, example `071^20.83W` |
-| `COMMENT`   | No  | Override PBEACON default comment |
+| `COMMENT`   | No  | Override PBEACON default comment, do not use the `~` character |
 | `SYMBOL`    | No  | APRS symbol for PBEACON, defaults to `igate` |
 | `IGSERVER`  | No  | Override with the APRS server for your region, default for North America `noam.aprs2.net` |
 | `ADEVICE`   | No  | Override Direwolf's ADEVICE for digipeater, default is `stdin null` for receive-only igate |
