@@ -1,5 +1,5 @@
-# docker-direwolf
-A multi-platform image for running [Direwolf] for APRS projects 📡
+# 📡 docker-direwolf
+A multi-platform image for running [Direwolf] for APRS projects
 
 `docker pull w2bro/direwolf`
 
