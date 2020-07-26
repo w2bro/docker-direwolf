@@ -30,4 +30,13 @@ if [ -n "$IGSERVER" ]; then
   sed -i "s/^IGSERVER.*$/IGSERVER ${IGSERVER}/g" direwolf.conf
 fi
 
-rtl_fm -f $FREQUENCY | direwolf -c direwolf.conf
+# Optionally start direwolf without rtl_fm as input
+if [ -n "$DW_STANDALONE" ]; then
+  if [ -n "$ADEVICE" ]; then
+    direwolf -c direwolf.conf
+  else
+    echo "DW_STANDALONE requires ADEVICE also be defined."
+    exit 4
+else
+  rtl_fm -f $FREQUENCY | direwolf -c direwolf.conf
+fi

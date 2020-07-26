@@ -1,7 +1,15 @@
 # 📡 docker-direwolf
 A multi-platform image for running [Direwolf] for APRS projects
 
+## Installing
+### Docker
 `docker pull w2bro/direwolf`
+
+### Kubernetes
+```shell
+helm repo add w2bro https://radio-charts.w2bro.dev
+helm install w2bro/direwolf
+```
 
 ## Environment Variables
 
@@ -16,6 +24,7 @@ A multi-platform image for running [Direwolf] for APRS projects
 | `IGSERVER`  | No  | Override with the APRS server for your region, default for North America `noam.aprs2.net` |
 | `ADEVICE`   | No  | Override Direwolf's ADEVICE for digipeater, default is `stdin null` for receive-only igate |
 | `FREQUENCY` | No  | Override `rtl_fm` input frequency, default `144.39M` North America APRS |
+| `DW_STANDALONE` | No | Set to any value to disable rtl_fm, useful in digipeater applications. Must also set `ADEVICE` |
 
 ## Example Usage
 
