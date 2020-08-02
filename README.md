@@ -74,5 +74,5 @@ spec:
           path: /dev/bus/usb/001/004
 ```
 [Direwolf]: https://github.com/wb2osz/direwolf
-[find passcode here]: http://apps.magicbug.co.uk/passcode/
+[find passcode here]: https://w2b.ro/tools/aprs-passcode/
 [k3s]: https://k3s.io
