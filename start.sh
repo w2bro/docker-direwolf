@@ -33,11 +33,11 @@ fi
 # Optionally start direwolf without rtl_fm as input
 if [ -n "$DW_STANDALONE" ]; then
   if [ -n "$ADEVICE" ]; then
-    direwolf -c direwolf.conf
+    direwolf $DWARGS -c direwolf.conf
   else
     echo "DW_STANDALONE requires ADEVICE also be defined."
     exit 4
   fi
 else
-  rtl_fm -f $FREQUENCY | direwolf -c direwolf.conf
+  rtl_fm -f $FREQUENCY | direwolf $DWARGS -c direwolf.conf
 fi
