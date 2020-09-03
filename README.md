@@ -25,6 +25,7 @@ helm install w2bro/direwolf
 | `ADEVICE`   | No  | Override Direwolf's ADEVICE for digipeater, default is `stdin null` for receive-only igate |
 | `FREQUENCY` | No  | Override `rtl_fm` input frequency, default `144.39M` North America APRS |
 | `DW_STANDALONE` | No | Set to any value to disable rtl_fm, useful in digipeater applications. Must also set `ADEVICE` |
+| `DWARGS` | No | Set to add/pass any arguments to the direwolf executable, example `-t 0` for no color logs |
 
 ## Example Usage
 
