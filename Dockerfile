@@ -1,6 +1,6 @@
 FROM debian:buster-slim as base
 RUN mkdir -p /etc/direwolf
-RUN apt-get update && apt-get upgrade \
+RUN apt-get update && apt-get -y dist-upgrade \
  && apt-get install -y \
     rtl-sdr \
     libasound2-dev \
