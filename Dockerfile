@@ -16,8 +16,11 @@ RUN apt-get update && apt-get install -y \
 
 RUN git clone "https://github.com/wb2osz/direwolf.git" /tmp/direwolf \
   && cd /tmp/direwolf \
-  && make \
+  && mkdir build && cd build \
+  && cmake .. \
+  && make -j4 \
   && make DESTDIR=/target install \
+  && make install-conf \
   && find /target/bin -type f -exec strip -p --strip-debug {} \;
 
 FROM base
